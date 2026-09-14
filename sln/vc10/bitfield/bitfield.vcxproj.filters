@@ -25,5 +25,8 @@
     <ClInclude Include="..\..\..\include\tset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="temp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
