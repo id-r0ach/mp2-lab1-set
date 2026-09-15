@@ -10,6 +10,28 @@
 // #define USE_SET // Использовать класс TSet,
                 // закоментировать, чтобы использовать битовое поле
 
+
+#include "tbitfield.h"
+#include <clocale>  // Локализация
+
+int main() {
+    setlocale(LC_ALL, "Russian"); // Локализация
+    TBitField tb(100);
+    std::cout << tb << std::endl;
+    std::cin >> tb;
+    std::cout << tb << std::endl;
+    tb.SetBit(10);
+    tb.SetBit(15);
+    tb.SetBit(20);
+    std::cout << tb << std::endl;
+    std::cout << tb.GetBit(10) << std::endl;
+    std::cout << tb.GetBit(11) << std::endl;
+    return 0;
+
+}
+
+
+/*
 #ifndef USE_SET // Использовать класс TBitField
 
 #include "tbitfield.h"
@@ -92,3 +114,4 @@ int main()
 }
 
 #endif
+*/
