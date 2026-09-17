@@ -16,18 +16,25 @@
 
 int main() {
     setlocale(LC_ALL, "Russian"); // Локализация
-    TBitField tb(100);
-    std::cout << tb << std::endl;
-    std::cin >> tb;
-    std::cout << tb << std::endl;
-    tb.SetBit(10);
-    tb.SetBit(15);
-    tb.SetBit(20);
-    std::cout << tb << std::endl;
-    std::cout << tb.GetBit(10) << std::endl;
-    std::cout << tb.GetBit(11) << std::endl;
+    try {
+        TBitField tb(100);
+        std::cout << tb << std::endl;
+        std::cin >> tb;
+        std::cout << tb << std::endl;
+        tb.SetBit(10);
+        tb.SetBit(15);
+        tb.SetBit(20);
+        std::cout << tb << std::endl;
+        std::cout << tb.GetBit(10) << std::endl;
+        std::cout << tb.GetBit(11) << std::endl;
+        std::cout << std::endl << std::endl;
+        TBitField tb1 = tb;
+        std::cout << tb1;
+    }
+    catch (...) {
+        std::cerr << "Выброшено исключение";
+    }
     return 0;
-
 }
 
 

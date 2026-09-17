@@ -6,6 +6,7 @@
 // Битовое поле
 
 #include "tbitfield.h"
+#include <string>
 
 // Fake variables used as placeholders in tests
 static const int FAKE_INT = -1;
@@ -97,7 +98,18 @@ int TBitField::GetBit(const int n) const // получить значение б
 
 TBitField& TBitField::operator=(const TBitField &bf) // присваивание
 {
-    return FAKE_BITFIELD;
+    if (this != &bf) {
+        BitLen = bf.BitLen;
+        MemLen = bf.MemLen;
+        if (MemLen != bf.MemLen) {
+            delete[] pMem;
+            pMem = new TELEM[MemLen];
+        }
+        for (int i = 0; i < MemLen; i++) {
+            pMem[i] = bf.pMem[i];
+        }
+    }
+    return *this;
 }
 
 int TBitField::operator==(const TBitField &bf) const // сравнение
