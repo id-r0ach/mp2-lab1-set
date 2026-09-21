@@ -10,7 +10,7 @@
 // #define USE_SET // Использовать класс TSet,
                 // закоментировать, чтобы использовать битовое поле
 
-
+/*
 #include "tbitfield.h"
 #include <clocale>  // Локализация
 
@@ -36,9 +36,9 @@ int main() {
     }
     return 0;
 }
+*/
 
 
-/*
 #ifndef USE_SET // Использовать класс TBitField
 
 #include "tbitfield.h"
@@ -121,4 +121,3 @@ int main()
 }
 
 #endif
-*/
