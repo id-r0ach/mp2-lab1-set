@@ -12,42 +12,23 @@ static const int FAKE_INT = -1;
 static TBitField FAKE_BITFIELD(1);
 static TSet FAKE_SET(1);
 
-TSet::TSet(int mp) : BitField(-1)
-{
-}
+TSet::TSet(int mp) : BitField(mp), MaxPower(mp) {}
 
 // конструктор копирования
-TSet::TSet(const TSet &s) : BitField(-1)
-{
-}
+TSet::TSet(const TSet &s) : BitField(s.BitField), MaxPower(s.MaxPower) {}
 
 // конструктор преобразования типа
-TSet::TSet(const TBitField &bf) : BitField(-1)
-{
-}
+TSet::TSet(const TBitField &bf) : BitField(bf), MaxPower(bf.GetLength()) {}
 
-TSet::operator TBitField()
-{
-    return FAKE_BITFIELD;
-}
+TSet::operator TBitField() { return TBitField((*this).MaxPower); }
 
-int TSet::GetMaxPower(void) const // получить макс. к-во эл-тов
-{
-    return FAKE_INT;
-}
+int TSet::GetMaxPower(void) const { return MaxPower; } // получить макс. к-во эл-тов
 
-int TSet::IsMember(const int Elem) const // элемент множества?
-{
-    return FAKE_INT;
-}
+int TSet::IsMember(const int Elem) const { return (*this).BitField.GetBit(Elem); } // элемент множества?
 
-void TSet::InsElem(const int Elem) // включение элемента множества
-{
-}
+void TSet::InsElem(const int Elem) { (*this).BitField.SetBit(Elem); } // включение элемента множества
 
-void TSet::DelElem(const int Elem) // исключение элемента множества
-{
-}
+void TSet::DelElem(const int Elem) { (*this).BitField.ClrBit(Elem); } // исключение элемента множества
 
 // теоретико-множественные операции
 
